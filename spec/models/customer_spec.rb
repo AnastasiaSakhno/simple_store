@@ -7,7 +7,7 @@ describe "Customer" do
     item = FactoryGirl.create(:item)
     orders = []
     count = 5
-    count.times { orders << Order.new(FactoryGirl(:customer), item) }
+    count.times { orders << Order.new(customer, item) }
     orders.each { |order| order.save }
     Order.find_by_customer_id(customer.id).size.should == count
   end
