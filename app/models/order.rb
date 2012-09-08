@@ -3,10 +3,10 @@ class Order < ActiveRecord::Base
   belongs_to :customer
   belongs_to :item
 
-  def initialize customer, items
+  def initialize customer, item
     raise ArgumentError.new 'customer can not be nil' if customer == nil
-    raise ArgumentError.new 'items can not be nil or blank' if items == nil || items.blank?
+    raise ArgumentError.new 'items can not be nil or blank' if item == nil
     @customer = customer
-    @items = items
+    @item = item
   end
 end
