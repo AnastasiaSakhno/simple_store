@@ -3,4 +3,8 @@ class Order < ActiveRecord::Base
   belongs_to :customer
   belongs_to :item
   validates :customer_id, :item_id, :presence => {:message => 'can not be blank'}
+
+  def self.find_by_customer id
+    Order.where(customer_id: id)
+  end
 end
