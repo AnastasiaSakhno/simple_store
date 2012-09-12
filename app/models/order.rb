@@ -5,6 +5,6 @@ class Order < ActiveRecord::Base
   validates :customer_id, :item_id, :presence => true
 
   def self.find_by_customer id
-    Order.where(customer_id: id)
+    self.where(customer_id: id)
   end
 end
