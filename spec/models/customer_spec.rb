@@ -8,10 +8,10 @@ describe Customer do
   it "should give active customers who ordered 2 or more items for the last 3 months" do
     check_expected 0
     item = FactoryGirl.create(:item)
-    (0..10).each do |index|
-      customer = create_customer_with_order_and_check_active index, item, 1
-      create_order_with_check_active index + 1, customer, item
-      create_order_with_check_active index + 1, customer, item
+    (0..10).each do |active|
+      customer = create_customer_with_order_and_check_active active, item, 1
+      create_order_with_check_active active + 1, customer, item
+      create_order_with_check_active active + 1, customer, item
     end
   end
 
