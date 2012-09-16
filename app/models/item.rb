@@ -5,7 +5,6 @@ class Item < ActiveRecord::Base
   @@popularity_percent = 10.0
   cattr_reader :popularity_percent
 
-  # TODO should it be in products model?
   def self.popular
     items =  self.select('items.*, count(items.id) as order_count').joins(:orders).group('items.id').order('order_count desc').all
     count = (@@popularity_percent / 100.0 * items.size.to_f).to_i

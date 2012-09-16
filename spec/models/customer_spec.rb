@@ -4,6 +4,10 @@ describe Customer do
   it { should validate_presence_of (:email) }
   it { should validate_presence_of (:password) }
   it { should validate_presence_of (:name) }
+  it { should have_many (:orders) }
+  it { should have_db_column(:name) }
+  it { should have_db_column(:email) }
+  it { should have_db_column(:password) }
 
   it "should give active customers who ordered 2 or more items for the last 3 months" do
     check_expected 0
